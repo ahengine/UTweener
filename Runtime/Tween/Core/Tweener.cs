@@ -26,5 +26,8 @@ namespace Tweener
             for (int i = 0; i < items.Count; i++)
                 items[i].Update();
         }
+
+        private void OnDestroy() =>
+            instance = null;
     }
 }

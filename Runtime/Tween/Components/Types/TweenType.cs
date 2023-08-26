@@ -21,7 +21,7 @@ namespace Tweener.Components.Types
 
         protected void Play<T>(Tween<T> tweener, bool reverse, bool haveCompleteAction = true)
         {
-            System.Action onCompleteAction = haveCompleteAction ? (reverse ? () => player.Events.onReverseCompleteEvent.Invoke() : () => player.Events.onCompleteEvent.Invoke()) : null;
+            System.Action onCompleteAction = haveCompleteAction ? (reverse ? () => player.Events.OnReverseCompleteEvent.Invoke() : () => player.Events.OnCompleteEvent.Invoke()) : null;
 
             tweener.SetDuration(player.Duration).
             SetTimeScale(player.TimeScale).

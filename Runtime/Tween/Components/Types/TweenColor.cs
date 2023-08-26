@@ -40,7 +40,7 @@ namespace Tweener.Components.Types
 
         private void Play(Color target, bool haveCompleteAction)
         {
-            System.Action onCompleteAction = haveCompleteAction ? (start == target ? () => player.Events.onReverseCompleteEvent.Invoke() : () => player.Events.onCompleteEvent.Invoke()) : null;
+            System.Action onCompleteAction = haveCompleteAction ? (start == target ? () => player.Events.OnReverseCompleteEvent.Invoke() : () => player.Events.OnCompleteEvent.Invoke()) : null;
 
             switch (component)
             {

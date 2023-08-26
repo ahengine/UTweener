@@ -25,7 +25,7 @@ namespace Tweener.Components.Types
 
         private void Play(float target, bool haveCompleteAction = true)
         {
-            System.Action onCompleteAction = haveCompleteAction ? (start == target ? () => player.Events.onReverseCompleteEvent.Invoke() : () => player.Events.onCompleteEvent.Invoke()) : null;
+            System.Action onCompleteAction = haveCompleteAction ? (start == target ? () => player.Events.OnReverseCompleteEvent.Invoke() : () => player.Events.OnCompleteEvent.Invoke()) : null;
             imgComponent.TweenFillAmount(target,player.Duration, player.TimeScale, onCompleteAction, 100, player.EaseAnimation).SetPingPong(player.PingPong).Play();
         }
 

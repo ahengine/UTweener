@@ -68,8 +68,8 @@ namespace Tweener.Components
             }
 
             if (haveCompleteAction)
-                tween.SetOnCompleteAction(start == target ? () => player.Events.onReverseCompleteEvent.Invoke()
-                : () => player.Events.onCompleteEvent.Invoke());
+                tween.SetOnCompleteAction(start == target ? () => player.Events.OnReverseCompleteEvent.Invoke()
+                : () => player.Events.OnCompleteEvent.Invoke());
 
             tween.SetEase(player.EaseAnimation);
             tween.SetPingPong(player.PingPong);

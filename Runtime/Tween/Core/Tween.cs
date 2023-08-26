@@ -18,8 +18,7 @@ namespace Tweener
         protected LerpFunction lerpFunc;
         public bool TimeScale { private set; get; }
         public bool IsPlaying { private set; get; }
-        public bool PingPong { private set; get; }
-        public int PingPongCount { private set; get; } = -1;
+        public TweenPingPong PingPong { private set; get; }
 
         public Tween(T start, T target, float duration, LerpFunction lerpFunc, bool timeScale = true,
             Action<T> onUpdate = null, Action onComplete = null, int DurationPercentageOnCompletion = 100,
@@ -65,15 +64,15 @@ namespace Tweener
 
         private void OnComplete()
         {
-            if (PingPong)
+            if (PingPong.Enable)
             {
-                if (PingPongCount != -1)
+                if (PingPong.Count != -1)
                 {
-                    PingPongCount--;
+                    PingPong.Count--;
 
-                    if (PingPongCount == 0)
+                    if (PingPong.Count == 0)
                     {
-                        PingPong = false;
+                        PingPong.Enable = false;
                         DoComplete();
                         return;
                     }
@@ -152,29 +151,14 @@ namespace Tweener
             return this;
         }
 
-        public Tween<T> SetPingPong(bool value = true)
-        {
-            PingPong = value;
-            return this;
-        }
-
         public Tween<T> SetPingPong(TweenPingPong pingPong)
         {
-            if (!pingPong.pingPong)
+            if (!pingPong.Enable)
                 return this;
 
-            SetPingPong();
-            SetPingPongCount(pingPong.pingPongCount);
+            PingPong = pingPong;
             return this;
         }
-
-        public Tween<T> SetPingPongCount(int count)
-        {
-            PingPongCount = count;
-            SetPingPong();
-            return this;
-        }
-
 
         public Tween<T> SetEase(EasingFunction.Ease ease)
         {
