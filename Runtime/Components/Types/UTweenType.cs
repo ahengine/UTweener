@@ -1,13 +1,13 @@
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-namespace Tweener.Components.Types
+namespace UTweener.Components.Types
 {
-    public abstract class TweenType : MonoBehaviour
+    public abstract class UTweenType : MonoBehaviour
     {
-        protected TweenPlayer player;
+        protected UTweenPlayer player;
         [SerializeField,Tooltip("Null == this game object")] protected GameObject targetObject;
-        public virtual void Initialize(TweenPlayer player)
+        public virtual void Initialize(UTweenPlayer player)
         {
             this.player = player;
 
@@ -19,7 +19,7 @@ namespace Tweener.Components.Types
 
         public abstract void ReversePlay(bool haveCompleteAction = true);
 
-        protected void Play<T>(Tween<T> tweener, bool reverse, bool haveCompleteAction = true)
+        protected void Play<T>(UTween<T> tweener, bool reverse, bool haveCompleteAction = true)
         {
             System.Action onCompleteAction = haveCompleteAction ? (reverse ? () => player.Events.OnReverseCompleteEvent.Invoke() : () => player.Events.OnCompleteEvent.Invoke()) : null;
 

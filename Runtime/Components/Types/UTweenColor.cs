@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Tweener.Components.Types
+namespace UTweener.Components.Types
 {
-    public class TweenColor : TweenType
+    public class UTweenColor : UTweenType
     {
         public enum ComponentType { Graphic , SpriteRenderer}
 
@@ -14,7 +14,7 @@ namespace Tweener.Components.Types
         private Graphic graphicComponent;
         private SpriteRenderer sprComponent;
 
-        public override void Initialize(TweenPlayer player)
+        public override void Initialize(UTweenPlayer player)
         {
             base.Initialize(player);
 

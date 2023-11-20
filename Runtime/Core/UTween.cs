@@ -1,10 +1,10 @@
 using UnityEngine;
 using System;
-using Tweener.Components;
+using UTweener.Components;
 
-namespace Tweener
+namespace UTweener
 {
-    public class Tween<T> : ITween
+    public class UTween<T> : IUTween
     {
         public delegate T LerpFunction(T start, T target, float t);
 
@@ -18,9 +18,9 @@ namespace Tweener
         protected LerpFunction lerpFunc;
         public bool TimeScale { private set; get; }
         public bool IsPlaying { private set; get; }
-        public TweenPingPong PingPong { private set; get; }
+        public UTweenPingPong PingPong { private set; get; }
 
-        public Tween(T start, T target, float duration, LerpFunction lerpFunc, bool timeScale = true,
+        public UTween(T start, T target, float duration, LerpFunction lerpFunc, bool timeScale = true,
             Action<T> onUpdate = null, Action onComplete = null, int DurationPercentageOnCompletion = 100,
             EasingFunction.Ease ease = EasingFunction.Ease.Linear)
         {
@@ -34,7 +34,7 @@ namespace Tweener
             easeFunc = EasingFunction.GetEasingFunction(ease);
             timeElapsed = 0;
             TimeScale = timeScale;
-            Tweener.Add(this);
+            UTweener.Add(this);
         }
 
 
@@ -54,7 +54,7 @@ namespace Tweener
                 CompleteAction();
         }
 
-        public Tween<T> Stop()
+        public UTween<T> Stop()
         {
             timeElapsed = 0;
             value = start;
@@ -88,7 +88,7 @@ namespace Tweener
         {
             IsPlaying = false;
             if(allowCallCompleteAction) CompleteAction();
-            Tweener.Remove(this);
+            UTweener.Remove(this);
         }
 
         private void CompleteAction()
@@ -98,19 +98,19 @@ namespace Tweener
             onCompleteAction?.Invoke();
         }
 
-        public Tween<T> Play()
+        public UTween<T> Play()
         {
             IsPlaying = true;
             return this;
         }
 
-        public Tween<T> Pause()
+        public UTween<T> Pause()
         {
             IsPlaying = false;
             return this;
         }
 
-        public Tween<T> Reset()
+        public UTween<T> Reset()
         {
             timeElapsed = 0;
             value = start;
@@ -118,7 +118,7 @@ namespace Tweener
             return this;
         }
 
-        public Tween<T> Reverse()
+        public UTween<T> Reverse()
         {
             var startValue = start;
             start = target;
@@ -126,32 +126,32 @@ namespace Tweener
             return this;
         }
 
-        public Tween<T> SetStart(T value)
+        public UTween<T> SetStart(T value)
         {
             start = value;
             return this;
         }
 
-        public Tween<T> SetTarget(T value)
+        public UTween<T> SetTarget(T value)
         {
             target = value;
             return this;
         }
 
-        public Tween<T> SetTimeScale(bool value)
+        public UTween<T> SetTimeScale(bool value)
         {
             TimeScale = value;
             return this;
         }
 
 
-        public Tween<T> SetDuration(float value)
+        public UTween<T> SetDuration(float value)
         {
             duration = value;
             return this;
         }
 
-        public Tween<T> SetPingPong(TweenPingPong pingPong)
+        public UTween<T> SetPingPong(UTweenPingPong pingPong)
         {
             if (!pingPong.Enable)
                 return this;
@@ -160,13 +160,13 @@ namespace Tweener
             return this;
         }
 
-        public Tween<T> SetEase(EasingFunction.Ease ease)
+        public UTween<T> SetEase(EasingFunction.Ease ease)
         {
             easeFunc = EasingFunction.GetEasingFunction(ease);
             return this;
         }
 
-        public Tween<T> SetOnCompleteAction(Action action)
+        public UTween<T> SetOnCompleteAction(Action action)
         {
             onCompleteAction = action;
             return this;

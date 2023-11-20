@@ -1,13 +1,13 @@
 using UnityEngine;
 
-namespace Tweener.Components
+namespace UTweener.Components
 {
-    public class TweenAnimation : MonoBehaviour
+    public class UTweenAnimation : MonoBehaviour
     {
         public enum PlayType { Play, ReversePlay }
 
         [field:SerializeField] public PlayType Type { private set; get; }
-        [SerializeField] private TweenPlayer[] players;
+        [SerializeField] private UTweenPlayer[] players;
 
         public void PlayDefault()
         {

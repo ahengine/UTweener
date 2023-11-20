@@ -1,18 +1,18 @@
 using UnityEngine;
-using Tweener.Components.Types;
+using UTweener.Components.Types;
 
-namespace Tweener.Components
+namespace UTweener.Components
 {
-    public class TweenPlayer : MonoBehaviour
+    public class UTweenPlayer : MonoBehaviour
     {
         [SerializeField] private bool playOnEnable;
         [field: SerializeField] public EasingFunction.Ease EaseAnimation { private set; get; }
         [field: SerializeField] public float Duration { private set; get; } = 1;
         [field: SerializeField] public bool TimeScale { private set; get; } = true;
         //[field: SerializeField] public int  DurationPercentageOnCompletion { private set; get; } = 100;
-        [field: SerializeField] public TweenEvents Events { private set; get; }
-        [SerializeField] public TweenPingPong PingPong { private set; get; }
-        [field: SerializeField] public TweenType[] Targets { private set; get; }
+        [field: SerializeField] public UTweenEvents Events { private set; get; }
+        [field: SerializeField] public UTweenPingPong PingPong { private set; get; }
+        [field: SerializeField] public UTweenType[] Targets { private set; get; }
         public bool IsPlayed { protected set; get; }
 
         private bool isInitialized;

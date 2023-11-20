@@ -1,10 +1,10 @@
 
 using UnityEngine;
-using Tweener.Components.Types;
+using UTweener.Components.Types;
 
-namespace Tweener.Components
+namespace UTweener.Components
 {
-    public class TweenTransform : TweenType
+    public class UTweenTransform : UTweenType
     {
         public enum TransformType { Move, Rotate, Scale,Size }
 
@@ -15,7 +15,7 @@ namespace Tweener.Components
         [SerializeField] private Space space;
         [SerializeField] private TransformType type;
 
-        public override void Initialize(TweenPlayer player)
+        public override void Initialize(UTweenPlayer player)
         {
             base.Initialize(player);
 
@@ -47,7 +47,7 @@ namespace Tweener.Components
 
         public void Play(Vector3 target, bool haveCompleteAction)
         {
-            Tween<Vector3> tween = null;
+            UTween<Vector3> tween = null;
 
             switch (type)
             {

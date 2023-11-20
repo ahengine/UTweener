@@ -2,17 +2,17 @@ using UnityEngine;
 using UnityEngine.Events;
 using Serializable = System.SerializableAttribute;
 
-namespace Tweener.Components
+namespace UTweener.Components
 {
     [Serializable]
-    public record TweenPingPong 
+    public record UTweenPingPong 
     {
         [field: SerializeField] public bool Enable;
         [field: SerializeField] public int Count;
     }
 
     [Serializable]
-    public record TweenEvents
+    public record UTweenEvents
     {
         [field: SerializeField] public UnityEvent OnCompleteEvent { private set; get; }
         [field: SerializeField] public UnityEvent OnReverseCompleteEvent { private set; get; }

@@ -2,16 +2,16 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
-namespace Tweener.Components.Types
+namespace UTweener.Components.Types
 {
-    public class TweenFillAmount : TweenType
+    public class UTweenFillAmount : UTweenType
     {
         private float start;
         [SerializeField, Range(0, 1)] private float target;
 
         private Image imgComponent;
 
-        public override void Initialize(TweenPlayer player)
+        public override void Initialize(UTweenPlayer player)
         {
             base.Initialize(player);
             imgComponent = targetObject.GetComponent<Image>();

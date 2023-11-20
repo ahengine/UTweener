@@ -1,11 +1,11 @@
 using UnityEngine;
 
-namespace Tweener.Components
+namespace UTweener.Components
 {
-    public class TweenAnimator : MonoBehaviour
+    public class UTweenAnimator : MonoBehaviour
     {
         [field:SerializeField] public string DefaultState { private set; get; }
-        [field:SerializeField] public TweenAnimation[] States { private set; get; }
+        [field:SerializeField] public UTweenAnimation[] States { private set; get; }
 
         private void OnEnable()
         {
